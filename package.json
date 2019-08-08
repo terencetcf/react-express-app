@@ -10,7 +10,7 @@
     "start": "npm run server",
     "dev": "webpack-dev-server",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "cross-env NODE_ENV=production babel-node src/server",
+    "server": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec.js",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
@@ -28,8 +28,8 @@
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
-  "devserver": "live-server --browser=Chrome",
   "dependencies": {
+    "@babel/core": "^7.5.5",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
