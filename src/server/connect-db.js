@@ -2,8 +2,6 @@ import { MongoClient } from "mongodb";
 const url = process.env.MONGOLAB_URI || "mongodb://localhost:27017/myorganizer";
 let db = null;
 
-console.log(url);
-
 export async function connectDB() {
   if (db) return db;
   let client = await MongoClient.connect(url, { useNewUrlParser: true });
@@ -11,6 +9,3 @@ export async function connectDB() {
   console.info("Got DB,", db);
   return db;
 }
-
-// connectDB();
-//mongodb+srv://dev:Password02@cluster0-t2ntc.mongodb.net/test?retryWrites=true&w=majority
