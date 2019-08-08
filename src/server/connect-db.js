@@ -2,6 +2,8 @@ import { MongoClient } from "mongodb";
 const url = process.env.MONGOLAB_URI || "mongodb://localhost:27017/myorganizer";
 let db = null;
 
+console.log(url);
+
 export async function connectDB() {
   if (db) return db;
   let client = await MongoClient.connect(url, { useNewUrlParser: true });
