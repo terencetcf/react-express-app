@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navigation = () => (
-  <div>
-    <Link to="/dashboard">
-      <h1>My Application</h1>
-    </Link>
-  </div>
+  <h1 className="display4 text-center mt-3">My ToDoList</h1>
 );
 
 export const ConnectedNavigation = connect(state => state)(Navigation);

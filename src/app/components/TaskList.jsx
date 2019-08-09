@@ -3,15 +3,36 @@ import { connect } from "react-redux";
 import { requestTaskCreation } from "../store/mutations";
 import { Link } from "react-router-dom";
 
+const getClassNameByGroupID = groupID => {
+  switch (groupID) {
+    case "G1":
+      return "info";
+    case "G2":
+      return "primary";
+    default:
+      return "success";
+  }
+};
+
 export const TaskList = ({ tasks, name, id, createNewTask }) => (
   <>
-    <h3>{name}</h3>
-    {tasks.map(task => (
-      <Link key={task.id} to={`/task/${task.id}`}>
-        <div>{task.name}</div>
-      </Link>
-    ))}
-    <button onClick={() => createNewTask(id)}>New Task</button>
+    <div className="list-group mb-5">
+      <div className={`list-group-item bg-${getClassNameByGroupID(id)}`}>
+        {name}
+
+        <button
+          className="btn btn-warning float-right"
+          onClick={() => createNewTask(id)}
+        >
+          New Task
+        </button>
+      </div>
+      {tasks.map(task => (
+        <Link className="list-group-item" key={task.id} to={`/task/${task.id}`}>
+          <>{task.name}</>
+        </Link>
+      ))}
+    </div>
   </>
 );
 
